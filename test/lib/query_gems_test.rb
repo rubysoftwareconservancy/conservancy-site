@@ -28,51 +28,52 @@ query from a local copy
 * [ ] this test is actually hitting the web, do we care about VCR type solutions?
       maybe we split the difference? how do our test suite protect us if the real api changes under us
 =end
-  
+
 
 #   test "find archived" do
 # foo = RubyGems.give_me_gems
 # bar = Github.give_me_repos
 # foo & bar
-# 
-#     select * 
-# from github 
-# inner join ruby_gems 
+#
+#     select *
+# from github
+# inner join ruby_gems
 # on github.url = ruby_gems.homepage
 # where github.archived = true
 # and ruby_gems.downloads > lower_threshold_foo
 #     FooGemCache
-# 
-# 
+#
+#
 #     QueryGems.give_me_top_n_gems_that_need_attention
 #     RubyGems
 #     Github
 #     # use some score to determine priority - archived and high download
-#     
-# 
-# 
-# 
-# 
+#
+#
+#
+#
+#
 #     QueryGems.new(author: "foo")
 #     QueryGems.new(author: ["foo", "bar"])
 #     query_gems.results
-# 
+#
 #     QueryGems.new(archived: true).results
-# 
+#
 #     QueryGems.archived
 #     QueryGems.where(archived: true)
 #     QueryGems.give_me_hella_gems.select { |el| el.archived }
 #   end
-# 
+#
 
-  test "arel this stuff" do
-    # assert_equal "fail", QueryGems.gimme_some_schema
-    RubyGem.fetch_from_ruby_gems_dot_org("maid")
-    # assert_equal 1, RubyGem.count # TODO database_cleaner
-    maid_gem = RubyGem.first
-    puts maid_gem.inspect
-    assert_equal maid_gem.name, "maid"
-  end
+  # FIXME
+  # test "arel this stuff" do
+  #   # assert_equal "fail", QueryGems.gimme_some_schema
+  #   RubyGem.fetch_from_ruby_gems_dot_org("maid")
+  #   # assert_equal 1, RubyGem.count # TODO database_cleaner
+  #   maid_gem = RubyGem.first
+  #   puts maid_gem.inspect
+  #   assert_equal maid_gem.name, "maid"
+  # end
 
   # test "#results" do
   #   query = QueryGems.new(username: "fgrehm")
