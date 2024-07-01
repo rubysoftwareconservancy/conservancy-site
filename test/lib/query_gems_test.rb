@@ -21,7 +21,7 @@ Manual solution now:
 
 
 
-ETL
+ETL: Extract Transform and Load
 grab a set of gems
 query from a local copy
 
