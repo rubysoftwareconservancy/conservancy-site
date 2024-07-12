@@ -47,9 +47,8 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-
 gem "gems"
-
+gem "vcr", "~> 6.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -72,6 +71,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "database_cleaner-active_record"
+  gem "webmock", "~> 3.23"
 end
 
-# TODO: add a linter or rubocop or something like that
+gem "octokit", "~> 9.1"

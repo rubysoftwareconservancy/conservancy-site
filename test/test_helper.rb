@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require 'vcr'
 
 module ActiveSupport
   class TestCase
@@ -12,16 +13,18 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
 
-		setup do
-			puts "DatabaseCleaner.start"
-			DatabaseCleaner.start
-			puts "DatabaseCleaner.clean"
-			DatabaseCleaner.clean
-		end
+    setup do
+      DatabaseCleaner.start
+      DatabaseCleaner.clean
 
-		teardown do
-			puts "DatabaseCleaner.clean"
-			DatabaseCleaner.clean
-		end
+      VCR.configure do |config|
+        config.cassette_library_dir = "fixtures/vcr_cassettes"
+        config.hook_into :webmock
+      end
+    end
+
+    teardown do
+      DatabaseCleaner.clean
+    end
   end
 end

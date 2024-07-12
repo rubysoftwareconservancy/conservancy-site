@@ -1,6 +1,10 @@
 require "test_helper"
 
 class QueryGemsTest < ActiveSupport::TestCase
+
+  def test_foo
+    fail "check out the foo_hack.rb file next"
+  end
 # TODO: close instance before we wrap for the day
 =begin
 
