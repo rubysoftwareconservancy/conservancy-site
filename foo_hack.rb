@@ -1,28 +1,23 @@
+require 'open-uri'
+
+def query_github_from_project_url(project_url)
+  url = 'https://github.com/benjaminoakes/maid/'
+  uri = URI.parse(url)
+  uri.host = 'api.github.com'
+  uri.path = '/repos' + uri.path
+  io = URI.open('https://api.github.com/repos/benjaminoakes/maid')
+  body = io.read
+  JSON.parse(body)
+end
+
 # gem = RubyGem.find_by_name("maid")
-# 
 # # This is gonna be a lot messier than just this, but for now that's ok
 # gem.github_url
-# # homepage?
-# 
-# # GitHubCacheFooModel.new 
-# github_repo_object = query_github_from_project_url(project_url)
-# 
+# ruby_gem.homepage_url # => "https://github.com/maid/maid"
+json = query_github_from_project_url("https://github.com/maid/maid")
+# GitHubRepo.create(json)
 # github_repoo_object.archived?
-# 
+#
 # if gem.archived? && gem.usage_score > some_cutoff
 #   add_gem_to_our_fostering_portfolio
 # end
-
-# github_repo_object = query_github_from_project_url(project_url)
-
-require "octokit"
-
-def query_github_from_project_url(project_url)
-  puts "querying " + project_url
-  client = Octokit::Client.new(:access_token => 'personal_access_token')
-
-  p client
-  p client.user
-end
-
-query_github_from_project_url("maid")
